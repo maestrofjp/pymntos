@@ -19,8 +19,8 @@ handlers:
 - url: /calendar.*
   script: apps/calendar.py
   
-- url: /blog
+- url: /blog.*
   script: apps/blog.py
   
-- url: /blogs
+- url: /blogs.*
   script: apps/blog.py
