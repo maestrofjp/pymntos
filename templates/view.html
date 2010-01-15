@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+{{ page.title }}
+{% endblock %}
+
+{% block body %}
+
+{{ page.rendered_body }}
+
+<div id="nav">
+  <a href="{{req.url}}?edit">Edit</a>
+</div>
+
+{% endblock %}

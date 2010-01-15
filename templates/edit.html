@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+
+<form action="{{ page.path }}" method="POST">
+Edit the page:<br>
+Title: <input type="text" name="title"
+  value="{{ page.title|escape }}"><br>
+Body:<br>
+<textarea name="body" rows=20 style="width: 100%"
+>{{ page.body|escape }}</textarea><br>
+<input type="submit">
+</form>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-application: minnepy
+application: pymntos
 version: 1
 runtime: python
 api_version: 1
@@ -13,14 +13,5 @@ handlers:
 - url: /styles
   static_dir: static/styles
   
-- url: /
-  script: apps/minnepy.py
-  
-- url: /calendar.*
-  script: apps/calendar.py
-  
-- url: /blog.*
-  script: apps/blog.py
-  
-- url: /blogs.*
-  script: apps/blog.py
+- url: /.*
+  script: apps/app.py
