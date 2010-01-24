@@ -1,0 +1,163 @@
+/* Basic Typography */
+
+body {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+}
+
+p, pre, table {
+    margin-bottom: 20px;
+}
+
+blockquote {
+    padding-left: 5em;
+    font-style: italic;
+}
+
+blockquote em, blockquote i {
+    font-style: normal;
+}
+
+h2 {
+    line-height: 40px;
+    font-size: 20px;
+}
+
+a {
+    color: #5099d7;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+pre {
+    border: 1px solid #080;
+    color: #080;
+    background: #cfc;
+    padding: 5px;
+    line-height: 1em;
+}
+
+code {
+    font-family: Consolas, Monaco, monospace;
+}
+
+
+/* Header Region */
+
+#header_area {
+    background-color: #333;
+    height: 80px;
+    /*border-bottom: 2px solid #8aff00;*/
+    border-bottom: 3px solid #ff9b39;
+}
+
+#header h1, #header h1 a {
+    display: block;
+    text-indent: -1000em;
+    background: #333 url(../images/pymntos_logo.png) top left no-repeat;
+    height: 60px;
+}
+
+#navigation_area {
+    height: 30px;
+    background-color: #5d5d5d;
+    clear: both;
+}
+
+ul#navigation {
+    display: block;
+    list-style-type: none;
+}
+
+ul#navigation li {
+    display: inline;
+    margin-right: 2em;
+}
+
+ul#navigation li a {
+    line-height: 20px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+ul#navigation li a:hover {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+/**** Content ****/
+
+#content_area {
+    clear: both;
+    margin-top: 20px;
+}
+
+/* Frontpage specific */
+
+#meeting_time_box {
+    background-color: #edfce3;
+    border: 1px solid #b2fc80;
+    padding: 5px;
+    color: #6d6d6d;
+}
+
+#join_list_button, #rsvp_button {
+    display: block;
+    background-color: #edfce3;
+    border: 1px solid #b2fc80;
+    /*color: #6d6d6d;*/
+    float: left;
+    padding: 5px;
+    width: 208px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#join_list_button:hover, #rsvp_button:hover {
+    background-color: #ff9b39;
+    color: #fff;
+    color: rgba(255,255,255,0.7);
+}
+
+#join_list_button {
+    margin-right: 20px;
+}
+
+#below_fold {
+    margin-top: 20px;
+}
+
+/* Footer Hack */
+
+html, body {
+height: 100%;
+}
+
+#not_the_footer {
+    min-height: 100%;
+}
+
+#clearfooter {
+    clear: both;
+    height: 50px;
+}
+
+#footer_area {
+    background-color: #333;
+    color: #ddd;
+    height: 40px;
+    padding-top: 10px;
+    margin: -50px auto 0 auto;
+}
+
+/* IE Hack */
+* html #not_the_footer {
+    height: 100%;
+}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid_6 alpha suffix_1">
+    <h2>Welcome!</h2>
+    <p>
+        PyMNtos (pronounced pie-min-tose) is a Twin Cities group of Python
+        enthusiasts.  Some of us use Python every day in our work.  Some of us are
+        just hobbyists.  Others are just learning.  Whoever you are and whatever your
+        skill level is, we would love for you to join us.
+    </p>
+    <p>
+        We meet at 7:00 PM on the second Thursday of the month at
+        <a href="http://www.nerdery.com/">The Nerdery</a>,
+        in Bloomington.  There is no membership fee or any other barrier to entry.
+        Just RSVP so that the Nerdery knows how much pizza to get.
+    </p>
+    
+    <a id="join_list_button" href="/">Join our discussion list.</a>
+    <a id="rsvp_button" href="/">RSVP for our next meeting.</a>
+    
+</div>
+
+<div class="grid_5 omega">
+    <div id="meeting_time_box">
+        <h2>Next Meeting</h2>
+        <table style="width: 100%; border-collapse:collapse;">
+            <tr>
+                <td><strong>Date:</td>
+                <td>March 11, 2010</td>
+            </tr>
+            <tr>
+                <td><strong>Time:</td>
+                <td>7:00 PM</td>
+            </tr>
+            <tr>
+                <td><strong>Location:</td>
+                <td><a href="http://www.nerdery.com/">The Nerdery</a> (<a href="http://maps.google.com/maps?q=9555+James+Ave+S+Suite+245+Bloomington,+MN+55431">map</a>)</td>
+            </tr>
+        </table>
+        <p>
+            In this meeting, we'll learn how to raise capital for your hot new
+            startup at the Mystic Lake blackjack tables.  What could possibly
+            go wrong?
+        </p>
+    </div>
+</div>
+
+<div id="below_fold" class="grid_12 alpha omega">
+    <div class="grid_6 suffix_1 alpha">
+        <h2>Blog</h2>
+        <p>foo</p>
+    </div>
+    <div class="grid_5 omega">
+        <h2>Twitter</h2>
+        <p>foo</p>
+    </div>
+</div>
+{% endblock %}

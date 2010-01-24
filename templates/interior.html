@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+<div id="title" class="grid_12 alpha omega">
+    <h2>{{ page.title }}</h2>
+</div>
+<div id="body" class="alpha grid_7 suffix_1">
+{% block body %}{% endblock %}
+</div>
+<div id="sidebar" class="grid_4 omega">
+    {{ sidebar }}
+</div>
+{% endblock %}

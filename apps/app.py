@@ -1,8 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 from settings import template_path
 import sys
 import mimetypes
 import os
+
 import markdown
 
 from google.appengine.ext import db
@@ -10,7 +11,6 @@ from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
-
 
 _DEBUG = True
 
@@ -32,6 +32,7 @@ class Page(db.Model):
     @property
     def rendered_body(self):
         return markdown.markdown(self.body)
+        #return unicode(sys.path)
 
 def render(template_name, **kw):
     kw['sidebar'] = Page.by_name('/sidebar').rendered_body
@@ -39,6 +40,15 @@ def render(template_name, **kw):
 
 class Blog(webapp.RequestHandler):
     pass
+
+class LandingPage(webapp.RequestHandler):
+    """Landing Page, since it's different from other pages."""
+    def get(self):
+        self.response.out.write(
+            render(
+                'landing.html',
+                title='PyMNtos: Twin Cities Python User Group'))
+        return
 
 class Wiki(webapp.RequestHandler):
     """Wiki"""
@@ -66,6 +76,7 @@ class Wiki(webapp.RequestHandler):
         self.redirect(self.request.url)
 
 _URLS = [
+    ('/', LandingPage),
     ('^/blog', Blog),
     ('.*', Wiki),
 ]
