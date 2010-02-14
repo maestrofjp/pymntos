@@ -96,7 +96,7 @@ class Page(db.Model):
 #### Handlers ####
 
 def render(template_name, **kw):
-    kw['sidebar'] = Page.by_name('/sidebar').rendered_body
+    kw['sidebar'] = Page.by_name('/sidebar/').rendered_body
     user = users.get_current_user()
     kw['user'] = user
     if kw['user']:
