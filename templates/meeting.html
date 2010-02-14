@@ -1,0 +1,65 @@
+{% extends 'interior.html' %}
+
+{% block body %}
+	{% if meeting %}
+		{% if message %}
+			<p style="color: #0c0; border: 1px solid #0c0; background-color: #cfc; width: 100%; padding: 5px;">
+				Victory!  Thanks for RSVPing.
+			</p>
+		{% endif %}
+	
+		<h2>Next Meeting: {{ meeting.date|date:"F j, Y"}}</h2>
+		
+		<div class="grid_3 alpha">
+			<h3>Location</h3>
+			<p>
+				<a href="http://www.nerdery.com/">Nerdery Interactive Labs</a><br />
+				9555 James Ave S<br />
+				Suite 245<br />
+				Bloomington, MN 55431<br />
+				(<a href="http://maps.google.com/maps?q=9555+James+Ave+S+Suite+245+Bloomington,+MN+55431">Map</a>)
+			</p>
+		</div>
+		<div class="grid_4 omega">
+			<h3>Agenda</h3>
+			{{ meeting.rendered_agenda }}
+		</div>
+		
+		<div class="grid_7 alpha omega">
+		<h2>RSVP</h2>
+		{% if error %}
+			<p style="padding:5px; border: 1px solid #c00; background-color: #fcc; color: #c00; width:100%;">
+				Something went wrong.  Please try again.
+			</p>
+		{% endif %}
+		
+		<form method="post" action="/meetings/" id="meeting_rsvp_form">
+			<input type="hidden" name="meeting" value="{{ meeting.key }}">
+			<label for="name"><strong>Name</strong></label><br />
+			<input class="textfield" type="text" name="name" />&nbsp;&nbsp;
+			<input type="checkbox" name="vegetarian" />&nbsp;<label for="vegetarian">I am a vegetarian.</label><br /><br />
+			<input type="submit" value="RSVP" />
+		</form>
+		</div>
+		
+		<div class="grid_7 alpha omega">
+		<h2>Attendees</h2>
+		{% if meeting.attendees %}
+			<ul id="attendee_list">
+			{% for attendee in meeting.attendees %}
+				<li>{{ attendee.name }}</li>
+			{% endfor %}
+			</ul>
+			<p>
+				<strong>Total RSVPs:</strong> {{ attendees }}<br />
+				<strong>Vegetarians: </strong> {{ vegetarians }}<br />
+			</p>
+		{% else %}
+		<p>No one has RSVPed yet.</p>
+		{% endif %}
+		</div>
+		
+	{% else %}
+		<p>No meetings exist in our database.</p>
+	{% endif %}
+{% endblock %}

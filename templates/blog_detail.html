@@ -1,0 +1,10 @@
+{% extends 'interior.html' %}
+
+{% block body %}
+
+<h2>{{ post.title }}</h2>
+<p class="timestamp">{{ post.timestamp|date:"F j, Y"}}</p>
+
+{{ post.rendered_body }}
+
+{% endblock %}

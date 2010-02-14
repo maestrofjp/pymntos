@@ -13,10 +13,8 @@
                     <h1 class="grid_7 suffix_5 alpha omega"><a href="/">pyMNtos</a></h1>
                     <ul id="navigation" class="grid_12 alpha omega">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/">Menu Item #1</a></li>
-                        <li><a href="/">Menu Item #2</a></li>
-                        <li><a href="/">Menu Item #3</a></li>
-                        <li><a href="/">Menu Item #4</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+						<li><a href="/meetings/">Meetings</a></li>
                     </ul>
                 </div>
             </div>
@@ -33,7 +31,13 @@
     </div>
     <div id="footer_area">
         <div class="container_12">
-            <div class="grid_12">Footer Content</div>
+            <div class="grid_12">
+                {% if user %}
+                    <p>Logged in as {{ user.nickname }}. <a href="{{ logout_url }}">Log out</a>.</p>
+                {% else %}
+                    <p><a href="{{ login_url }}">Log in</a>.</p>
+                {% endif %}
+            </div>
         </div>
     </div>
 </body>

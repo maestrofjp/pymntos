@@ -13,11 +13,11 @@
         We meet at 7:00 PM on the second Thursday of the month at
         <a href="http://www.nerdery.com/">The Nerdery</a>,
         in Bloomington.  There is no membership fee or any other barrier to entry.
-        Just RSVP so that the Nerdery knows how much pizza to get.
+        Just RSVP so that The Nerdery knows how much pizza to get.
     </p>
     
-    <a id="join_list_button" href="/">Join our discussion list.</a>
-    <a id="rsvp_button" href="/">RSVP for our next meeting.</a>
+    <a id="join_list_button" href="http://groups.google.com/group/pymntos">Join our discussion list.</a>
+    <a id="rsvp_button" href="/meetings/">RSVP for our next meeting.</a>
     
 </div>
 
@@ -27,33 +27,57 @@
         <table style="width: 100%; border-collapse:collapse;">
             <tr>
                 <td><strong>Date:</td>
-                <td>March 11, 2010</td>
+                <td>{{ meeting.date|date:"F j, Y" }}</td>
             </tr>
             <tr>
                 <td><strong>Time:</td>
-                <td>7:00 PM</td>
+                <td>{{ meeting.date|date:"g:i A" }}</td>
             </tr>
             <tr>
                 <td><strong>Location:</td>
-                <td><a href="http://www.nerdery.com/">The Nerdery</a> (<a href="http://maps.google.com/maps?q=9555+James+Ave+S+Suite+245+Bloomington,+MN+55431">map</a>)</td>
+                <td>
+					<a href="http://www.nerdery.com/">Nerdery Interactive Labs</a><br />
+					9555 James Ave S<br />
+					Suite 245<br />
+					Bloomington, MN 55431<br />
+					(<a href="http://maps.google.com/maps?q=9555+James+Ave+S+Suite+245+Bloomington,+MN+55431">Map</a>)
+				</td>
             </tr>
         </table>
-        <p>
-            In this meeting, we'll learn how to raise capital for your hot new
-            startup at the Mystic Lake blackjack tables.  What could possibly
-            go wrong?
-        </p>
+        {{ meeting.rendered_agenda }}
     </div>
 </div>
 
 <div id="below_fold" class="grid_12 alpha omega">
     <div class="grid_6 suffix_1 alpha">
         <h2>Blog</h2>
-        <p>foo</p>
+        {% if blog_posts %}
+			{% for post in blog_posts %}
+				<div class="blog_post">
+					<h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+					{{ post.rendered_excerpt }}
+					<p class="timestamp">{{ post.timestamp|date:"F j, Y"}}</p>
+				</div>
+			{% endfor %}
+		{% else %}
+		<p>No blog posts.</p>
+		{% endif %}
     </div>
     <div class="grid_5 omega">
         <h2>Twitter</h2>
-        <p>foo</p>
+        {% if tweets %}
+			{% for tweet in tweets %}
+				<div class="tweet">
+					<p>{{ tweet.parsed }}</p>
+					<p class="metadata">
+						<a href="http://twitter.com/{{ tweet.author }}">@{{ tweet.author }}</a>
+						on {{ tweet.timestamp|date:"F j, Y" }}
+					</p>
+				</div>
+			{% endfor %}
+		{% else %}
+			<p>Why aren't people talking about us on Twitter?</p>
+		{% endif %}
     </div>
 </div>
 {% endblock %}

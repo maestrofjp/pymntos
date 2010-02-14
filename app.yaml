@@ -6,6 +6,14 @@ api_version: 1
 handlers:
 - url: /media
   static_dir: media
-  
+
+- url: /appengine_admin_media
+  static_dir: lib/python/appengine_admin/media
+  secure: never
+
+- url: /cron/twitter/
+  script: apps/app.py
+  login: admin
+
 - url: /.*
   script: apps/app.py

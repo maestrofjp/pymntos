@@ -7,7 +7,7 @@ body {
     color: #333;
 }
 
-p, pre, table {
+p, pre, table, form {
     margin-bottom: 20px;
 }
 
@@ -20,9 +20,23 @@ blockquote em, blockquote i {
     font-style: normal;
 }
 
+em, i {
+	font-style: italic;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+
 h2 {
     line-height: 40px;
     font-size: 20px;
+}
+
+h3 {
+    line-height: 20px;
+    font-weight: bold;
 }
 
 a {
@@ -132,6 +146,59 @@ ul#navigation li a:hover {
 
 #below_fold {
     margin-top: 20px;
+}
+
+.tweet .metadata {
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: -20px;
+    font-style: italic;
+    text-align: right;
+}
+
+/* Blog Posts */
+
+.blog_post {
+    
+}
+
+.blog_post h3 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.blog_post h3 a:hover {
+    text-decoration: underline;
+    color: #5099D7;
+}
+
+.blog_post .timestamp {
+    margin-top: -20px;
+    color: #666;
+    font-style: italic;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+/**** Meeting Page ****/
+
+#meeting_rsvp_form {
+    width: 100%;
+    background-color: #edfce3;
+    border: 1px solid #b2fc80;
+    padding: 5px;
+    color: #6d6d6d;
+}
+
+#meeting_rsvp_form .textfield {
+    width: 50%;
+    height: 24px;
+    font-size: 16px;
+}
+
+ul#attendee_list {
+    list-style: none;
+    margin-bottom: 20px;
 }
 
 /* Footer Hack */

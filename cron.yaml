@@ -1,0 +1,4 @@
+cron:
+- description: Updating Twitter Posts
+  url: /cron/twitter/
+  schedule: every 30 minutes

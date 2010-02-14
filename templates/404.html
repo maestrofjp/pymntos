@@ -1,15 +1,17 @@
-{% extends "base.html" %}
+{% extends 'interior.html' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}Page Not Found{% endblock %}
 
 {% block content %}
 <div id="title" class="grid_12 alpha omega">
-    <h2>{{ page.title }}</h2>
+    <h2>Page Not Found</h2>
 </div>
 <div id="body" class="alpha grid_7 suffix_1">
-{% block body %}{% endblock %}
+
+<p>The page you requested does not exist.</p>
+
 </div>
 <div id="sidebar" class="grid_4 omega">
-    {% block sidebar %}{{ sidebar }}{% endblock %}
+    {{ sidebar }}
 </div>
 {% endblock %}
