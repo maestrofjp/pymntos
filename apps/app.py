@@ -171,18 +171,16 @@ class LandingPage(webapp.RequestHandler):
         
 class NextMeeting(webapp.RequestHandler):
     def get(self):
+        success_message = False
+        failure_message = False
         try:
             meeting = Meeting.all().order('-date').fetch(limit=1)[0]
             
             if 'success' in self.request.GET:
                 success_message = "Thank you for RSVPing."
-            else:
-                success_message = False
                 
             if 'failure' in self.request.GET:
                 failure_message = "Something went wrong.  Please try again."
-            else:
-                failure_message = False
                 
             try:
                 # TODO: FIX THIS
