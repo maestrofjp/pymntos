@@ -114,6 +114,16 @@ ul#navigation li a:hover {
 
 /* Frontpage specific */
 
+#meeting_time_box h2 a {
+    text-decoration: none;
+    color: #6d6d6d;
+}
+
+#meeting_time_box h2 a:hover {
+    text-decoration: underline;
+    color: #5099d7;
+}
+
 #meeting_time_box {
     background-color: #edfce3;
     border: 1px solid #b2fc80;
@@ -204,7 +214,7 @@ ul#attendee_list {
 /* Footer Hack */
 
 html, body {
-height: 100%;
+    height: 100%;
 }
 
 #not_the_footer {

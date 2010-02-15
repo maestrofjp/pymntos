@@ -23,7 +23,7 @@
 
 <div class="grid_5 omega">
     <div id="meeting_time_box">
-        <h2>Next Meeting</h2>
+        <h2><a href="/meetings/">Next Meeting</a></h2>
         <table style="width: 100%; border-collapse:collapse;">
             <tr>
                 <td><strong>Date:</td>
@@ -56,7 +56,10 @@
 				<div class="blog_post">
 					<h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
 					{{ post.rendered_excerpt }}
-					<p class="timestamp">{{ post.timestamp|date:"F j, Y"}}</p>
+					<p class="timestamp">
+						{{ post.timestamp|date:"F j, Y"}} |
+						<a href="{{ post.permalink }}">Permalink</a>
+					</p>
 				</div>
 			{% endfor %}
 		{% else %}
