@@ -257,8 +257,8 @@ class Wiki(webapp.RequestHandler):
             if users.is_current_user_admin():
                 self.response.out.write(render('edit.html', page=page, title='Edit %s' % page_name))
             else:
-                if 'edit' in self.request.GET:
-                    #redirect to login page
+                if 'edit' in self.request.GET and not users.get_current_user():
+                    # Redirect to login page if not logged in.
                     self.redirect(users.create_login_url(page_name + '?edit'))
                 else:
                     # 404
