@@ -1,7 +1,11 @@
 application: pymntos
-version: 3
-runtime: python
+version: 4
+runtime: python27
 api_version: 1
+threadsafe: false
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: django_settings
 
 handlers:
 - url: /media
@@ -17,3 +21,10 @@ handlers:
 
 - url: /.*
   script: apps/app.py
+
+libraries:
+- name: django
+  version: "1.4"
+
+- name: PIL
+  version: "1.1.7"

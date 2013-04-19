@@ -13,7 +13,7 @@ from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
-from django.core.paginator import ObjectPaginator, InvalidPage
+from django.core.paginator import Paginator, InvalidPage
 from django.utils import simplejson
 from pymntos_utilities import SlugProperty, strip_html_tags
 import appengine_admin
@@ -113,7 +113,7 @@ class BlogIndex(webapp.RequestHandler):
             raw_page = 1
         page = raw_page - 1
         posts = BlogPost.all().order('-timestamp')
-        paginator = ObjectPaginator(posts, 10)
+        paginator = Paginator(posts, 10)
         
         if page >= paginator.pages:
             page = paginator.pages - 1
