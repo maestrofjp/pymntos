@@ -30,3 +30,17 @@ Included Packages
 .. _`Appengine Auto Admin - darvin's fork`:
    https://github.com/darvin/appengine-admin
 .. _Markdown: http://packages.python.org/Markdown/
+
+
+Documentation
+=============
+
+- `Django template language`_
+- `Porting your apps from Django 0.96`_
+- webapp2_
+
+.. _`Django template language`:
+   https://docs.djangoproject.com/en/1.4/topics/templates/
+.. _`Porting your apps from Django 0.96`:
+   https://docs.djangoproject.com/en/1.4/releases/1.0-porting-guide/
+.. _webapp2: http://webapp-improved.appspot.com/index.html
