@@ -13,7 +13,7 @@ from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
-from django.core.paginator import Paginator, InvalidPage
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import simplejson
 from pymntos_utilities import SlugProperty, strip_html_tags
 import appengine_admin
@@ -64,7 +64,7 @@ class BlogPost(db.Model):
         excerpt = re.split("\n+", body)[0]
         return markdown.markdown(excerpt)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.title
         
     @property
@@ -90,7 +90,7 @@ class Page(db.Model):
     def rendered_body(self):
         return markdown.markdown(self.body)
         
-    def __str__(self):
+    def __unicode__(self):
         return self.title
 
 #### Handlers ####
@@ -107,32 +107,40 @@ def render(template_name, **kw):
 
 class BlogIndex(webapp.RequestHandler):
     def get(self):
+        posts = BlogPost.all().order('-timestamp')
+        paginator = Paginator(posts, 10)
+
         try:
             raw_page = int(self.request.GET['page'])
         except:
             raw_page = 1
-        page = raw_page - 1
-        posts = BlogPost.all().order('-timestamp')
-        paginator = Paginator(posts, 10)
-        
-        if page >= paginator.pages:
-            page = paginator.pages - 1
-            raw_page = paginator.pages
-            
-        previous_page = next_page = False
-        if raw_page > 1:
-            previous_page = raw_page - 1
 
-        if raw_page < paginator.pages:
-            next_page = raw_page + 1
+        try:
+            page = paginator.page(raw_page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            page = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range, deliver last page of results.
+            page = paginator.page(paginator.num_pages)
+
+        if page.has_previous():
+            previous_page = page.previous_page_number();
+        else:
+            previous_page = False
+
+        if page.has_next():
+            next_page = page.next_page_number();
+        else:
+            next_page = False
 
         self.response.out.write(
             render('blog_index.html',
                 title="Blog",
-                posts=paginator.get_page(page),
-                pages=paginator.pages,
-                previous_page = previous_page,
-                next_page = next_page
+                posts=page,
+                pages=paginator.num_pages,
+                previous_page=previous_page,
+                next_page=next_page
             )
         )
         return
