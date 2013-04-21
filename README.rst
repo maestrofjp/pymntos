@@ -14,7 +14,7 @@ Requirements
 The following need to be installed for local development:
 
 - `Google App Engine`_
-- PIL_ -- Python Imaging Library
+- PIL_ — Python Imaging Library
 
 .. _`Google App Engine`: https://developers.google.com/appengine/
 .. _PIL: http://www.pythonware.com/products/pil/
@@ -23,9 +23,9 @@ The following need to be installed for local development:
 Included Packages
 =================
 
-- `Appengine Auto Admin - darvin's fork`_ -- Automatic administration
+- `Appengine Auto Admin - darvin's fork`_ — Automatic administration
   interface for Google Appengine Apps
--  Markdown_ -- Python implementation of Markdown.
+-  Markdown_ — Python implementation of Markdown
 
 .. _`Appengine Auto Admin - darvin's fork`:
    https://github.com/darvin/appengine-admin
