@@ -20,11 +20,11 @@
         <a href="http://www.clockwork.net/">Clockwork</a>,
         in NE Minneapolis.  There is no membership fee or any other barrier to entry.
         Just RSVP so that we know how much pizza to get.
-    </p> 
-    
+    </p>
+
     <a id="join_list_button" href="http://groups.google.com/group/pymntos">Join our discussion list.</a>
     <a id="rsvp_button" href="/meetings/">RSVP for our next meeting.</a>
-    
+
 </div>
 
 <div class="grid_5 omega">
@@ -65,37 +65,37 @@
     <div class="grid_6 suffix_1 alpha">
         <h2>Blog</h2>
         {% if blog_posts %}
-			{% for post in blog_posts %}
-				<div class="blog_post">
-					<h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
-					{% autoescape off %}
-						{{ post.rendered_excerpt }}
-					{% endautoescape %}
-					<p class="timestamp">
-						{{ post.timestamp|date:"F j, Y"}} |
-						<a href="{{ post.permalink }}">Permalink</a>
-					</p>
-				</div>
-			{% endfor %}
-		{% else %}
-		<p>No blog posts.</p>
-		{% endif %}
+            {% for post in blog_posts %}
+                <div class="blog_post">
+                    <h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+                    {% autoescape off %}
+                        {{ post.rendered_excerpt }}
+                    {% endautoescape %}
+                    <p class="timestamp">
+                        {{ post.timestamp|date:"F j, Y"}} |
+                        <a href="{{ post.permalink }}">Permalink</a>
+                    </p>
+                </div>
+            {% endfor %}
+        {% else %}
+        <p>No blog posts.</p>
+        {% endif %}
     </div>
     <div class="grid_5 omega">
         <h2>Twitter</h2>
         {% if tweets %}
-			{% for tweet in tweets %}
-				<div class="tweet">
-					<p>{{ tweet.parsed }}</p>
-					<p class="metadata">
-						<a href="http://twitter.com/{{ tweet.author }}">@{{ tweet.author }}</a>
-						on {{ tweet.timestamp|date:"F j, Y" }}
-					</p>
-				</div>
-			{% endfor %}
-		{% else %}
-			<p>Why aren't people talking about us on Twitter?</p>
-		{% endif %}
+            {% for tweet in tweets %}
+                <div class="tweet">
+                    <p>{{ tweet.parsed }}</p>
+                    <p class="metadata">
+                        <a href="http://twitter.com/{{ tweet.author }}">@{{ tweet.author }}</a>
+                        on {{ tweet.timestamp|date:"F j, Y" }}
+                    </p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Why aren't people talking about us on Twitter?</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

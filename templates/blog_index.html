@@ -5,34 +5,34 @@
 {% block body %}
 
 {% if posts %}
-	{% for post in posts %}
-		<div class="blog_post">
-			<h3><a href="{{ post.permalink }}">{{ post.title }}</a</h3>
-			{% autoescape off %}
-				{{ post.rendered_excerpt }}
-			{% endautoescape %}
-			<p class="timestamp">
-				{{ post.timestamp|date:"F j, Y" }} &nbsp;|&nbsp;
-				<a href="{{ post.permalink }}">Permalink</a></p>
-		</div>
-	{% endfor %}
+    {% for post in posts %}
+        <div class="blog_post">
+            <h3><a href="{{ post.permalink }}">{{ post.title }}</a</h3>
+            {% autoescape off %}
+                {{ post.rendered_excerpt }}
+            {% endautoescape %}
+            <p class="timestamp">
+                {{ post.timestamp|date:"F j, Y" }} &nbsp;|&nbsp;
+                <a href="{{ post.permalink }}">Permalink</a></p>
+        </div>
+    {% endfor %}
 {% endif %}
 
 <div id="blog_pager" style="border-top: 1px solid #666; margin-top: -1px;">
-	<div style="width: 50%; float: left;">
-		{% if previous_page %}
-			<p><a href="?page={{ previous_page }}">Newer Posts</a></p>
-		{% else %}
-			<p>No Newer Posts</p>
-		{% endif %}
-	</div>
-	<div style="width: 50%; float: left; text-align: right;">
-		{% if next_page %}
-			<p><a href="?page={{ next_page }}">Older Posts</a></p>
-		{% else %}
-			&nbsp;
-		{% endif %}
-	</div>
+    <div style="width: 50%; float: left;">
+        {% if previous_page %}
+            <p><a href="?page={{ previous_page }}">Newer Posts</a></p>
+        {% else %}
+            <p>No Newer Posts</p>
+        {% endif %}
+    </div>
+    <div style="width: 50%; float: left; text-align: right;">
+        {% if next_page %}
+            <p><a href="?page={{ next_page }}">Older Posts</a></p>
+        {% else %}
+            &nbsp;
+        {% endif %}
+    </div>
 </div>
 
 {% endblock %}
