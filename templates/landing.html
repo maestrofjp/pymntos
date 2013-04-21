@@ -55,7 +55,9 @@
                 </td>
         </tr>
     </table>
-        {{ meeting.rendered_agenda }}
+        {% autoescape off %}
+            {{ meeting.rendered_agenda }}
+        {% endautoescape %}
     </div>
 </div>
 
@@ -66,7 +68,9 @@
 			{% for post in blog_posts %}
 				<div class="blog_post">
 					<h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
-					{{ post.rendered_excerpt }}
+					{% autoescape off %}
+						{{ post.rendered_excerpt }}
+					{% endautoescape %}
 					<p class="timestamp">
 						{{ post.timestamp|date:"F j, Y"}} |
 						<a href="{{ post.permalink }}">Permalink</a>

@@ -5,7 +5,9 @@
 
 {% block body %}
 
-{{ page.rendered_body }}
+{% autoescape off %}
+    {{ page.rendered_body }}
+{% endautoescape %}
 
 <div id="nav">
   <a href="{{req.url}}?edit">Edit</a>

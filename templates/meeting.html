@@ -21,7 +21,9 @@
 		</div>
 		<div class="grid_4 omega">
 			<h3>Agenda</h3>
-			{{ meeting.rendered_agenda }}
+			{% autoescape off %}
+				{{ meeting.rendered_agenda }}
+			{% endautoescape %}
 		</div>
 		
 		<div class="grid_7 alpha omega">
