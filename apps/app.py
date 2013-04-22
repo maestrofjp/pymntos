@@ -18,7 +18,7 @@ from django.utils import simplejson
 from pymntos_utilities import SlugProperty, strip_html_tags
 import appengine_admin
 
-_DEBUG = True
+_DEBUG = False
 
 
 class Tweet(db.Model):
