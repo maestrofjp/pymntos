@@ -1,4 +1,4 @@
-application: pymntos
+application: pymntos-hrd
 version: 4
 runtime: python27
 api_version: 1
