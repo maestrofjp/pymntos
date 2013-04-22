@@ -8,6 +8,10 @@ env_variables:
   DJANGO_SETTINGS_MODULE: django_settings
 
 handlers:
+- url: /favicon.ico
+  static_files: static/images/favicon.png
+  upload: static/images/favicon.png
+
 - url: /robots.txt
   static_files: static/robots.txt
   upload: static/robots.txt
