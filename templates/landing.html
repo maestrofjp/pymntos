@@ -86,7 +86,11 @@
         {% if tweets %}
             {% for tweet in tweets %}
                 <div class="tweet">
-                    <p>{{ tweet.parsed }}</p>
+                    <p>
+                        {% autoescape off %}
+                            {{ tweet.parsed }}
+                        {% endautoescape %}
+                    </p>
                     <p class="metadata">
                         <a href="http://twitter.com/{{ tweet.author }}">@{{ tweet.author }}</a>
                         on {{ tweet.timestamp|date:"F j, Y" }}
